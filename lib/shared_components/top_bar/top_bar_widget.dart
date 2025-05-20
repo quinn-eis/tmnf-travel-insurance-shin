@@ -95,38 +95,36 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.15,
-                          decoration: BoxDecoration(),
-                          child: Stack(
-                            children: [
-                              if (MediaQuery.sizeOf(context).width <= 600.0)
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.littleLogoModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: LittleLogoWidget(),
-                                  ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.1,
+                        decoration: BoxDecoration(),
+                        child: Stack(
+                          children: [
+                            if (MediaQuery.sizeOf(context).width <= 600.0)
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: wrapWithModel(
+                                  model: _model.littleLogoModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: LittleLogoWidget(),
                                 ),
-                              if (MediaQuery.sizeOf(context).width > 600.0)
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.bigLogoModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: BigLogoWidget(),
-                                  ),
+                              ),
+                            if (MediaQuery.sizeOf(context).width > 600.0)
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: wrapWithModel(
+                                  model: _model.bigLogoModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: BigLogoWidget(),
                                 ),
-                            ],
-                          ),
+                              ),
+                          ],
                         ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.75,
+                          width: MediaQuery.sizeOf(context).width * 0.65,
                           decoration: BoxDecoration(),
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
@@ -156,46 +154,33 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.15,
-                          decoration: BoxDecoration(),
-                          child: FlutterFlowDropDown<String>(
-                            controller: _model.dropDownValueController ??=
-                                FormFieldController<String>(null),
-                            options: [
-                              FFLocalizations.of(context).getText(
-                                'x5agyugl' /* 🇺🇸 */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'qwe9xi99' /* 🇯🇵 */,
-                              )
-                            ],
-                            onChanged: (val) async {
-                              safeSetState(() => _model.dropDownValue = val);
-                              if (_model.dropDownValue == '🇯🇵') {
-                                setAppLanguage(context, 'ja');
-                              } else {
-                                setAppLanguage(context, 'en');
-                              }
-                            },
-                            width: 60.0,
-                            height: 40.0,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.roboto(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  color:
-                                      FlutterFlowTheme.of(context).borderColor,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        decoration: BoxDecoration(),
+                        child: FlutterFlowDropDown<String>(
+                          controller: _model.dropDownValueController ??=
+                              FormFieldController<String>(null),
+                          options: [
+                            MediaQuery.sizeOf(context).width <= 600.0
+                                ? 'En'
+                                : 'English',
+                            MediaQuery.sizeOf(context).width <= 600.0
+                                ? '日本語'
+                                : '日本語(にほんご)'
+                          ],
+                          onChanged: (val) async {
+                            safeSetState(() => _model.dropDownValue = val);
+                            if (_model.dropDownValue == '🇯🇵') {
+                              setAppLanguage(context, 'ja');
+                            } else {
+                              setAppLanguage(context, 'en');
+                            }
+                          },
+                          height: 40.0,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                font: GoogleFonts.roboto(
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontWeight,
@@ -203,29 +188,41 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-                            hintText:
-                                FFLocalizations.of(context).getVariableText(
-                              enText: '🇺🇸',
-                              jaText: '🇯🇵',
-                            ),
-                            icon: Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
-                            ),
-                            fillColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            elevation: 2.0,
-                            borderColor: Colors.transparent,
-                            borderWidth: 0.0,
-                            borderRadius: 8.0,
-                            margin: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            hidesUnderline: true,
-                            isOverButton: false,
-                            isSearchable: false,
-                            isMultiSelect: false,
+                                color: FlutterFlowTheme.of(context).borderColor,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                          hintText: FFLocalizations.of(context).getVariableText(
+                            enText: MediaQuery.sizeOf(context).width <= 600.0
+                                ? 'En'
+                                : 'English',
+                            jaText: MediaQuery.sizeOf(context).width <= 600.0
+                                ? '日本語'
+                                : '日本語(にほんご)',
                           ),
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 2.0,
+                          borderColor: Colors.transparent,
+                          borderWidth: 0.0,
+                          borderRadius: 8.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          hidesUnderline: true,
+                          isOverButton: false,
+                          isSearchable: false,
+                          isMultiSelect: false,
                         ),
                       ),
                     ],

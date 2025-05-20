@@ -881,6 +881,61 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '家',
     },
   },
+  // TR100650
+  {
+    '6smn290n': {
+      'en': 'Flight Details',
+      'ja': 'フライトの詳細',
+    },
+    'um25xhxd': {
+      'en': 'Please enter the detail of your flight',
+      'ja': 'フライトの詳細を入力してください',
+    },
+    '7nnrijif': {
+      'en': '*indicates a required question',
+      'ja': '* は入力必須項目です。',
+    },
+    'ef77yl7k': {
+      'en': 'Arrival Airport Name',
+      'ja': '到着空港名',
+    },
+    '4dg877fh': {
+      'en': 'Airport Name',
+      'ja': '空港名',
+    },
+    'fnlg0cq7': {
+      'en': 'Arrival Date and Time',
+      'ja': '到着日時',
+    },
+    '11h1adbd': {
+      'en': '',
+      'ja': '',
+    },
+    '686gua7j': {
+      'en': 'I don\'t know',
+      'ja': '不明',
+    },
+    'y1d27sfe': {
+      'en': 'Arrival Flight Number',
+      'ja': '到着便名',
+    },
+    'y4z6du6o': {
+      'en': 'Flight Number',
+      'ja': '便名',
+    },
+    'l6whtweq': {
+      'en': '◀ Previous',
+      'ja': '◀ 戻る',
+    },
+    'dy1oceo0': {
+      'en': 'Next ▶',
+      'ja': '次へ ▶',
+    },
+    '6wdq9nj9': {
+      'en': 'Home',
+      'ja': '家',
+    },
+  },
   // TR100750
   {
     'slux8ils': {
@@ -1508,61 +1563,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '家',
     },
   },
-  // TR100650
-  {
-    '6smn290n': {
-      'en': 'Flight Details',
-      'ja': 'フライトの詳細',
-    },
-    'um25xhxd': {
-      'en': 'Please enter the detail of your flight',
-      'ja': 'フライトの詳細を入力してください',
-    },
-    '7nnrijif': {
-      'en': '*indicates a required question',
-      'ja': '* は入力必須項目です。',
-    },
-    'ef77yl7k': {
-      'en': 'Arrival Airport Name',
-      'ja': '到着空港名',
-    },
-    '4dg877fh': {
-      'en': 'Airport Name',
-      'ja': '空港名',
-    },
-    'fnlg0cq7': {
-      'en': 'Arrival Date and Time',
-      'ja': '到着日時',
-    },
-    '11h1adbd': {
-      'en': '',
-      'ja': '',
-    },
-    '686gua7j': {
-      'en': 'I don\'t know',
-      'ja': '不明',
-    },
-    'y1d27sfe': {
-      'en': 'Arrival Flight Number',
-      'ja': '到着便名',
-    },
-    'y4z6du6o': {
-      'en': 'Flight Number',
-      'ja': '便名',
-    },
-    'l6whtweq': {
-      'en': '◀ Previous',
-      'ja': '◀ 戻る',
-    },
-    'dy1oceo0': {
-      'en': 'Next ▶',
-      'ja': '次へ ▶',
-    },
-    '6wdq9nj9': {
-      'en': 'Home',
-      'ja': '家',
-    },
-  },
   // ErrorModal
   {
     'kaukxhzn': {
@@ -1983,25 +1983,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '',
     },
   },
-  // TopBar
-  {
-    '9y75r3p2': {
-      'en': '',
-      'ja': '',
-    },
-    'w8nycove': {
-      'en': 'Search...',
-      'ja': '',
-    },
-    'x5agyugl': {
-      'en': '🇺🇸',
-      'ja': '🇺🇸',
-    },
-    'qwe9xi99': {
-      'en': '🇯🇵',
-      'ja': '🇯🇵',
-    },
-  },
   // ClaimSummary
   {
     '0d72plv1': {
@@ -2010,6 +1991,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'nwbsbupp': {
       'en': 'Print as PDF',
+      'ja': '',
+    },
+  },
+  // TopBar
+  {
+    '9y75r3p2': {
+      'en': '',
+      'ja': '',
+    },
+    'w8nycove': {
+      'en': 'Search...',
       'ja': '',
     },
   },
