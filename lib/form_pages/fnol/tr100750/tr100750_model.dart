@@ -19,8 +19,6 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
-  // Model for endDrawerContent component.
-  late EndDrawerContentModel endDrawerContentModel;
   // Model for TopBar component.
   late TopBarModel topBarModel;
   // Model for progressBar component.
@@ -34,17 +32,18 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // Model for endDrawerContent component.
+  late EndDrawerContentModel endDrawerContentModel;
 
   @override
   void initState(BuildContext context) {
-    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
     topBarModel = createModel(context, () => TopBarModel());
     progressBarModel = createModel(context, () => ProgressBarModel());
+    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
   }
 
   @override
   void dispose() {
-    endDrawerContentModel.dispose();
     topBarModel.dispose();
     progressBarModel.dispose();
     datePickerFocusNode?.dispose();
@@ -52,5 +51,7 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
 
     textFieldFocusNode?.dispose();
     textController2?.dispose();
+
+    endDrawerContentModel.dispose();
   }
 }

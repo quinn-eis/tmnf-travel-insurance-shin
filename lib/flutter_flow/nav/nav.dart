@@ -44,11 +44,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, _) => entryPage ?? Tr100100Widget(),
           routes: [
             FFRoute(
-              name: ZFinalPageWidget.routeName,
-              path: ZFinalPageWidget.routePath,
-              builder: (context, params) => ZFinalPageWidget(),
-            ),
-            FFRoute(
               name: Tr100300Widget.routeName,
               path: Tr100300Widget.routePath,
               builder: (context, params) => Tr100300Widget(),
@@ -89,11 +84,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               builder: (context, params) => Tr100550Widget(),
             ),
             FFRoute(
-              name: Tr100650Widget.routeName,
-              path: Tr100650Widget.routePath,
-              builder: (context, params) => Tr100650Widget(),
-            ),
-            FFRoute(
               name: Tr100750Widget.routeName,
               path: Tr100750Widget.routePath,
               builder: (context, params) => Tr100750Widget(),
@@ -117,6 +107,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               name: Tr100210Widget.routeName,
               path: Tr100210Widget.routePath,
               builder: (context, params) => Tr100210Widget(),
+            ),
+            FFRoute(
+              name: ZFinalPageWidget.routeName,
+              path: ZFinalPageWidget.routePath,
+              builder: (context, params) => ZFinalPageWidget(),
+            ),
+            FFRoute(
+              name: Tr100650Widget.routeName,
+              path: Tr100650Widget.routePath,
+              builder: (context, params) => Tr100650Widget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

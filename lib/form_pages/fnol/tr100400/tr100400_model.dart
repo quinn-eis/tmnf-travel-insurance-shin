@@ -13,24 +13,24 @@ class Tr100400Model extends FlutterFlowModel<Tr100400Widget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for endDrawerContent component.
-  late EndDrawerContentModel endDrawerContentModel;
   // Model for TopBar component.
   late TopBarModel topBarModel;
   // Model for progressBar component.
   late ProgressBarModel progressBarModel;
+  // Model for endDrawerContent component.
+  late EndDrawerContentModel endDrawerContentModel;
 
   @override
   void initState(BuildContext context) {
-    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
     topBarModel = createModel(context, () => TopBarModel());
     progressBarModel = createModel(context, () => ProgressBarModel());
+    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
   }
 
   @override
   void dispose() {
-    endDrawerContentModel.dispose();
     topBarModel.dispose();
     progressBarModel.dispose();
+    endDrawerContentModel.dispose();
   }
 }

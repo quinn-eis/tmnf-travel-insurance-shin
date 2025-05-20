@@ -569,13 +569,27 @@ class _Tr100650WidgetState extends State<Tr100650Widget> {
                                                         getCurrentTimestamp,
                                                   );
 
+                                                  TimeOfDay? _datePickedTime;
                                                   if (_datePickedDate != null) {
+                                                    _datePickedTime =
+                                                        await showTimePicker(
+                                                      context: context,
+                                                      initialTime: TimeOfDay
+                                                          .fromDateTime(
+                                                              getCurrentTimestamp),
+                                                    );
+                                                  }
+
+                                                  if (_datePickedDate != null &&
+                                                      _datePickedTime != null) {
                                                     safeSetState(() {
                                                       _model.datePicked =
                                                           DateTime(
                                                         _datePickedDate.year,
                                                         _datePickedDate.month,
                                                         _datePickedDate.day,
+                                                        _datePickedTime!.hour,
+                                                        _datePickedTime.minute,
                                                       );
                                                     });
                                                   } else if (_model

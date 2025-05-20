@@ -20,8 +20,6 @@ class Tr100710Model extends FlutterFlowModel<Tr100710Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Model for endDrawerContent component.
-  late EndDrawerContentModel endDrawerContentModel;
   // Model for TopBar component.
   late TopBarModel topBarModel;
   // Model for progressBar component.
@@ -30,20 +28,23 @@ class Tr100710Model extends FlutterFlowModel<Tr100710Widget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Model for endDrawerContent component.
+  late EndDrawerContentModel endDrawerContentModel;
 
   @override
   void initState(BuildContext context) {
-    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
     topBarModel = createModel(context, () => TopBarModel());
     progressBarModel = createModel(context, () => ProgressBarModel());
+    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
   }
 
   @override
   void dispose() {
-    endDrawerContentModel.dispose();
     topBarModel.dispose();
     progressBarModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    endDrawerContentModel.dispose();
   }
 }
