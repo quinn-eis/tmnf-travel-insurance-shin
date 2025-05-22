@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/end_drawer_content/end_drawer_content_widget.dart';
 import '/shared_components/progress_bar/progress_bar_widget.dart';
@@ -19,6 +20,8 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  // Model for endDrawerContent component.
+  late EndDrawerContentModel endDrawerContentModel;
   // Model for TopBar component.
   late TopBarModel topBarModel;
   // Model for progressBar component.
@@ -32,18 +35,19 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  // Model for endDrawerContent component.
-  late EndDrawerContentModel endDrawerContentModel;
+  // Stores action output result for [Backend Call - API (tmnfTravelDemo)] action in Button widget.
+  ApiCallResponse? directusCreate;
 
   @override
   void initState(BuildContext context) {
+    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
     topBarModel = createModel(context, () => TopBarModel());
     progressBarModel = createModel(context, () => ProgressBarModel());
-    endDrawerContentModel = createModel(context, () => EndDrawerContentModel());
   }
 
   @override
   void dispose() {
+    endDrawerContentModel.dispose();
     topBarModel.dispose();
     progressBarModel.dispose();
     datePickerFocusNode?.dispose();
@@ -51,7 +55,5 @@ class Tr100750Model extends FlutterFlowModel<Tr100750Widget> {
 
     textFieldFocusNode?.dispose();
     textController2?.dispose();
-
-    endDrawerContentModel.dispose();
   }
 }

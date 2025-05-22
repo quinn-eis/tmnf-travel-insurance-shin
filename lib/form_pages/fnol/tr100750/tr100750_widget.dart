@@ -1,7 +1,9 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/form_pages/bottom_sheets/email_notifcation/email_notifcation_widget.dart';
 import '/form_pages/bottom_sheets/loading_indicator/loading_indicator_widget.dart';
 import '/shared_components/end_drawer_content/end_drawer_content_widget.dart';
 import '/shared_components/progress_bar/progress_bar_widget.dart';
@@ -10,6 +12,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tr100750_model.dart';
 export 'tr100750_model.dart';
 
@@ -53,6 +56,8 @@ class _Tr100750WidgetState extends State<Tr100750Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: '海外旅行保険',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -741,6 +746,40 @@ class _Tr100750WidgetState extends State<Tr100750Widget> {
                                     label: 'Next',
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        FFAppState()
+                                            .updateClaimInProgressStruct(
+                                          (e) => e
+                                            ..belongingPickupDateStr =
+                                                _model.pickupDateStr
+                                            ..belongingPickupLocation =
+                                                _model.textController2.text,
+                                        );
+                                        safeSetState(() {});
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          isDismissible: false,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: EmailNotifcationWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+
                                         showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
@@ -766,21 +805,38 @@ class _Tr100750WidgetState extends State<Tr100750Widget> {
                                           },
                                         ).then((value) => safeSetState(() {}));
 
-                                        FFAppState()
-                                            .updateClaimInProgressStruct(
-                                          (e) => e
-                                            ..belongingPickupDateStr =
-                                                _model.pickupDateStr
-                                            ..belongingPickupLocation =
-                                                _model.textController2.text,
+                                        _model.directusCreate =
+                                            await TmnfTravelDemoCall.call(
+                                          insuranceType: FFAppState()
+                                              .claimInProgress
+                                              .insuranceType,
+                                          policyNumber: FFAppState()
+                                              .claimInProgress
+                                              .policyNumber,
+                                          policyTermStartDateStr: FFAppState()
+                                              .claimInProgress
+                                              .policyTermStartDateStr,
+                                          policyTermEndDateStr: FFAppState()
+                                              .claimInProgress
+                                              .policyTermEndDateStr,
+                                          creditCardType: FFAppState()
+                                              .claimInProgress
+                                              .creditCardType,
+                                          ccNum: FFAppState()
+                                              .claimInProgress
+                                              .ccNum,
+                                          membershipType: FFAppState()
+                                              .claimInProgress
+                                              .membershipType,
+                                          notifyEmail: FFAppState().notifyEmail,
                                         );
-                                        safeSetState(() {});
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 250));
+
                                         Navigator.pop(context);
 
                                         context.pushNamed(
                                             ZFinalPageWidget.routeName);
+
+                                        safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'cco4d2ag' /* Done */,

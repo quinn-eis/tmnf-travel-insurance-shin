@@ -217,6 +217,48 @@ class VinLookupDevOnlyCall {
       ) as List?;
 }
 
+class TmnfTravelDemoCall {
+  static Future<ApiCallResponse> call({
+    String? accessToken = 'bzr3D7xq-ainc0e6UdeJOGKG6A-bAQpG',
+    String? insuranceType = '',
+    String? policyNumber = '',
+    String? policyTermStartDateStr = '',
+    String? policyTermEndDateStr = '',
+    String? creditCardType = '',
+    String? ccNum = '',
+    String? membershipType = '',
+    String? notifyEmail = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+"notifyEmail": "${escapeStringForJson(notifyEmail)}",
+"insuranceType": "${escapeStringForJson(insuranceType)}",
+"policyNumber": "${escapeStringForJson(policyNumber)}",
+"policyTermStartDateStr": "${escapeStringForJson(policyTermStartDateStr)}",
+"policyTermEndDateStr": "${escapeStringForJson(policyTermEndDateStr)}",
+"creditCardType": "${escapeStringForJson(creditCardType)}",
+"membershipType": "${escapeStringForJson(membershipType)}",
+"ccNum": "${escapeStringForJson(ccNum)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'tmnfTravelDemo',
+      apiUrl:
+          'https://directus-dev.metromileai.com/items/tmnfTravelDemo?access_token=${accessToken}',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -259,4 +301,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

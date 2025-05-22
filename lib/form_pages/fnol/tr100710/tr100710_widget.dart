@@ -1,6 +1,8 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/form_pages/bottom_sheets/email_notifcation/email_notifcation_widget.dart';
 import '/form_pages/bottom_sheets/loading_indicator/loading_indicator_widget.dart';
 import '/shared_components/end_drawer_content/end_drawer_content_widget.dart';
 import '/shared_components/progress_bar/progress_bar_widget.dart';
@@ -471,6 +473,38 @@ class _Tr100710WidgetState extends State<Tr100710Widget> {
                                     label: 'Next',
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        FFAppState()
+                                            .updateClaimInProgressStruct(
+                                          (e) => e
+                                            ..injuryDetail =
+                                                _model.textController.text,
+                                        );
+                                        safeSetState(() {});
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          isDismissible: false,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: EmailNotifcationWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+
                                         showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
@@ -496,19 +530,38 @@ class _Tr100710WidgetState extends State<Tr100710Widget> {
                                           },
                                         ).then((value) => safeSetState(() {}));
 
-                                        FFAppState()
-                                            .updateClaimInProgressStruct(
-                                          (e) => e
-                                            ..injuryDetail =
-                                                _model.textController.text,
+                                        _model.directusCreate =
+                                            await TmnfTravelDemoCall.call(
+                                          insuranceType: FFAppState()
+                                              .claimInProgress
+                                              .insuranceType,
+                                          policyNumber: FFAppState()
+                                              .claimInProgress
+                                              .policyNumber,
+                                          policyTermStartDateStr: FFAppState()
+                                              .claimInProgress
+                                              .policyTermStartDateStr,
+                                          policyTermEndDateStr: FFAppState()
+                                              .claimInProgress
+                                              .policyTermEndDateStr,
+                                          creditCardType: FFAppState()
+                                              .claimInProgress
+                                              .creditCardType,
+                                          ccNum: FFAppState()
+                                              .claimInProgress
+                                              .ccNum,
+                                          membershipType: FFAppState()
+                                              .claimInProgress
+                                              .membershipType,
+                                          notifyEmail: FFAppState().notifyEmail,
                                         );
-                                        safeSetState(() {});
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 250));
+
                                         Navigator.pop(context);
 
                                         context.pushNamed(
                                             ZFinalPageWidget.routeName);
+
+                                        safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '62l6qip4' /* Done */,

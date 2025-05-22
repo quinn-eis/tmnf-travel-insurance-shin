@@ -168,4 +168,10 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInCountryList(int index, CountryStruct value) {
     countryList.insert(index, value);
   }
+
+  String _notifyEmail = '';
+  String get notifyEmail => _notifyEmail;
+  set notifyEmail(String value) {
+    _notifyEmail = value;
+  }
 }

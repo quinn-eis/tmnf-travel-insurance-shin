@@ -684,49 +684,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '家',
     },
   },
-  // TR100710
-  {
-    '3aqln0mv': {
-      'en': 'Details',
-      'ja': '詳細',
-    },
-    'prfp31qp': {
-      'en': 'Please enter your injury details',
-      'ja': ' おけがをされた状況を入力してください',
-    },
-    'iv1a1q0g': {
-      'en': 'Please enter your sick details',
-      'ja': 'ご病気の状況を入力してください',
-    },
-    'cwd0cf59': {
-      'en': 'Please enter your accident details',
-      'ja': '事象の状況を入力してください',
-    },
-    'udy9j8n3': {
-      'en': 'Please enter your flight delay details',
-      'ja': '航空機遅延について詳細を入力してください',
-    },
-    'dzi9lv4h': {
-      'en': '',
-      'ja': '',
-    },
-    'r3drr1jc': {
-      'en': 'Details',
-      'ja': '詳細',
-    },
-    'g9z5gwyz': {
-      'en': '◀ Previous',
-      'ja': '◀ 戻る',
-    },
-    '62l6qip4': {
-      'en': 'Done',
-      'ja': '完了',
-    },
-    'gf5eicpi': {
-      'en': 'Home',
-      'ja': '家',
-    },
-  },
   // TR100520
   {
     '5j8fa6y0': {
@@ -932,53 +889,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '次へ ▶',
     },
     '6wdq9nj9': {
-      'en': 'Home',
-      'ja': '家',
-    },
-  },
-  // TR100750
-  {
-    'slux8ils': {
-      'en': 'Your Belongings',
-      'ja': '手荷物のステータス',
-    },
-    'fttk8ocz': {
-      'en': '*indicates a required question',
-      'ja': '* は入力必須項目です。',
-    },
-    '4id9o7lv': {
-      'en': 'Please enter the belongings pickup date and time',
-      'ja': '荷物の受け取り日時を入力してください',
-    },
-    'pr5ijc0u': {
-      'en': '',
-      'ja': '',
-    },
-    'jnl9kg0q': {
-      'en': 'I don\'t know',
-      'ja': '不明',
-    },
-    '1ekm4sdz': {
-      'en': 'Please enter the belongings pickup location',
-      'ja': '荷物の受け取り日時を入力してください',
-    },
-    'w6x9tlwp': {
-      'en': 'Postal Code',
-      'ja': '郵便番号',
-    },
-    'ddodq64g': {
-      'en': 'Location',
-      'ja': '(例)ロンドンのXXXホテル',
-    },
-    'sc3okhl6': {
-      'en': '◀ Previous',
-      'ja': '◀ 戻る',
-    },
-    'cco4d2ag': {
-      'en': 'Done',
-      'ja': '完了',
-    },
-    'h2ucsl63': {
       'en': 'Home',
       'ja': '家',
     },
@@ -1563,6 +1473,96 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': '家',
     },
   },
+  // TR100710
+  {
+    '3aqln0mv': {
+      'en': 'Details',
+      'ja': '詳細',
+    },
+    'prfp31qp': {
+      'en': 'Please enter your injury details',
+      'ja': ' おけがをされた状況を入力してください',
+    },
+    'iv1a1q0g': {
+      'en': 'Please enter your sick details',
+      'ja': 'ご病気の状況を入力してください',
+    },
+    'cwd0cf59': {
+      'en': 'Please enter your accident details',
+      'ja': '事象の状況を入力してください',
+    },
+    'udy9j8n3': {
+      'en': 'Please enter your flight delay details',
+      'ja': '航空機遅延について詳細を入力してください',
+    },
+    'dzi9lv4h': {
+      'en': '',
+      'ja': '',
+    },
+    'r3drr1jc': {
+      'en': 'Details',
+      'ja': '詳細',
+    },
+    'g9z5gwyz': {
+      'en': '◀ Previous',
+      'ja': '◀ 戻る',
+    },
+    '62l6qip4': {
+      'en': 'Done',
+      'ja': '完了',
+    },
+    'gf5eicpi': {
+      'en': 'Home',
+      'ja': '家',
+    },
+  },
+  // TR100750
+  {
+    'slux8ils': {
+      'en': 'Your Belongings',
+      'ja': '手荷物のステータス',
+    },
+    'fttk8ocz': {
+      'en': '*indicates a required question',
+      'ja': '* は入力必須項目です。',
+    },
+    '4id9o7lv': {
+      'en': 'Please enter the belongings pickup date and time',
+      'ja': '荷物の受け取り日時を入力してください',
+    },
+    'pr5ijc0u': {
+      'en': '',
+      'ja': '',
+    },
+    'jnl9kg0q': {
+      'en': 'I don\'t know',
+      'ja': '不明',
+    },
+    '1ekm4sdz': {
+      'en': 'Please enter the belongings pickup location',
+      'ja': '荷物の受け取り日時を入力してください',
+    },
+    'w6x9tlwp': {
+      'en': 'Postal Code',
+      'ja': '郵便番号',
+    },
+    'ddodq64g': {
+      'en': 'Location',
+      'ja': '(例)ロンドンのXXXホテル',
+    },
+    'sc3okhl6': {
+      'en': '◀ Previous',
+      'ja': '◀ 戻る',
+    },
+    'cco4d2ag': {
+      'en': 'Done',
+      'ja': '完了',
+    },
+    'h2ucsl63': {
+      'en': 'Home',
+      'ja': '家',
+    },
+  },
   // ErrorModal
   {
     'kaukxhzn': {
@@ -2003,6 +2003,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'w8nycove': {
       'en': 'Search...',
       'ja': '',
+    },
+  },
+  // emailNotifcation
+  {
+    '1u3p3nd5': {
+      'en': 'Please enter the email address to send the claim confirmation',
+      'ja': '大変お待たせしており、申し訳ありません。請求内容が登録されるまでに数分かかる場合がありますので、 ブラウザを更新しないでください。',
+    },
+    'abphz0yb': {
+      'en': 'Email',
+      'ja': '郵便番号',
+    },
+    'ni5rsi12': {
+      'en': 'Email is required',
+      'ja': '',
+    },
+    'c65yibl3': {
+      'en': 'Please choose an option from the dropdown',
+      'ja': '',
+    },
+    'xjz3vr43': {
+      'en': 'Next ▶',
+      'ja': '次へ ▶',
     },
   },
   // Miscellaneous
